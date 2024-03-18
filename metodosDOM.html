@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Métodos en JavaScript</title>
+    <style>
+        /* Estilo para el botón flotante */
+        #scrollBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body style="height: 7000px;">
+    <span id="miParrafo">Este es un párrafo con un ID específico.</span>
+
+    <div class="menu-item">Elemento con clase 'menu-item'</div>
+    <div class="menu-item">Otro elemento con la misma clase</div>
+
+    <p name="nombre">Parrafo 1 atributo 'name'</p>
+    <p name="nombre">Parrafo 2 atributo 'name'</p>
+
+    <button id="scrollBtn" onclick="scrollToTop()" title="Ir arriba">↑</button>
+
+    <script>
+        // getElementById
+        const parrafo = document.getElementById('miParrafo');
+        parrafo.style.color = 'red';
+
+        // getElementsByClassName
+        const elementosMenu = document.getElementsByClassName('menu-item');
+        for (const elemento of elementosMenu) {
+            elemento.style.backgroundColor = '#92a8d1';
+        }
+
+        // getElementsByName
+        const camposNombre = document.getElementsByName('nombre');
+        for (const campo of camposNombre) {
+            campo.style.backgroundColor = 'red';
+        }
+        
+         // getElementsByTagName
+         const camposTag = document.getElementsByTagName('p');
+        for (const campo of camposTag) {
+            campo.style.color = 'yellow';
+        }
+
+        // querySelector
+        const primerParrafo = document.querySelector('p');
+        primerParrafo.style.fontWeight = 'bold';
+
+        // querySelectorAll
+        const todosLosParrafos = document.querySelectorAll('p');
+        todosLosParrafos.forEach(p => {
+            p.style.fontSize = '16px';
+        });
+
+        // window.onload
+        window.onload = function () {
+            console.log('La página se ha cargado completamente.');
+        };
+
+        // window.scrollTo
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollBtn").style.display = "none";
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // createElement y createTextNode
+        const nuevoParrafo = document.createElement('p');
+        const textoNuevoParrafo = document.createTextNode('Este es un párrafo creado dinámicamente.');
+        nuevoParrafo.appendChild(textoNuevoParrafo);
+        document.body.appendChild(nuevoParrafo);
+
+        // append
+        const divContenedor = document.createElement('div');
+        const textoDiv = document.createTextNode('Nuevo elemento agregado al final.');
+        divContenedor.appendChild(textoDiv);
+        document.body.appendChild(divContenedor);
+    </script>
+</body>
+</html>

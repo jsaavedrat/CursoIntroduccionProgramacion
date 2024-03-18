@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Eventos en JavaScript</title>
+</head>
+<body>
+    <p id="myParagraph">Pasa el ratón sobre este párrafo.</p>
+    <input type="text" id="myInput" placeholder="Escribe algo...">
+    <button onclick="handleClick()">Haz clic aquí</button>
+    <br><br>
+    <div>
+        
+    <form action="/procesar_formulario" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Escribe tu email" required><br>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje"></textarea><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    </div>
+    <script>
+        // Evento mouseout
+        const paragraph = document.getElementById('myParagraph');
+        paragraph.addEventListener('mouseout', () => {
+            paragraph.style.color = 'red';
+        });
+
+        // Eventos keydown y keyup
+        const inputField = document.getElementById('myInput');
+        inputField.addEventListener('keydown', () => {
+            console.log('Tecla presionada');
+        });
+        inputField.addEventListener('keyup', () => {
+            console.log('Tecla liberada');
+        });
+
+        // Evento click
+        function handleClick() {
+            alert('¡Botón clickeado!');
+        }
+
+        // Evento mouseover
+        paragraph.addEventListener('mouseover', () => {
+            paragraph.style.fontWeight = 'bold';
+        });
+
+        // Evento change
+        inputField.addEventListener('change', () => {
+            console.log('Valor cambiado');
+        });
+
+        // Evento submit (en un formulario)
+        document.addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log('Formulario enviado');
+        });
+
+        // Evento load (cuando la página se carga completamente)
+        window.addEventListener('load', () => {
+            console.log('La página se ha cargado completamente.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Eventos y Propiedades del DOM</title>
+</head>
+<body>
+    <p id="myParagraph">Pasa el ratón sobre este párrafo.</p>
+    <input type="text" id="myInput" placeholder="Escribe algo...">
+    <button onclick="handleClick()">Haz clic aquí</button>
+
+    <script>
+        // Evento mouseover (Activación)
+        const paragraph = document.getElementById('myParagraph');
+        paragraph.addEventListener('mouseenter', (event) => {
+            paragraph.style.color = 'blue';
+            console.log(`Evento: ${event.type}`); // Propiedad event.type
+        });
+
+        // Evento keydown (Activación)
+        document.addEventListener('keydown', (event) => {
+            const pressedKey = event.key;
+            console.log(`Tecla presionada: ${pressedKey}`);
+        });
+
+        // Evento click (Activación)
+        function handleClick() {
+            alert('¡Botón clickeado!');
+        }
+
+        // Propiedad target (En la etiqueta)
+        document.addEventListener('click', (event) => {
+            const clickedElement = event.target;
+            console.log(`Elemento clickeado: ${clickedElement.tagName}`);
+        });
+    </script>
+</body>
+</html>

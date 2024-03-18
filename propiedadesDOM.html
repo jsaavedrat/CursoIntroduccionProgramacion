@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación de Atributos del DOM</title>
+</head>
+<body>
+    <p id="parrafo1">Este es el párrafo 1</p>
+    <button onclick="changeStyle()">Cambiar estilo</button>
+    <p id="parrafo2">Este es el párrafo 2</p>
+    <input type="text" id="myInput" value="Texto inicial">
+
+    <script>
+        // Modificar el contenido del párrafo utilizando innerHTML
+        const parrafo1 = document.getElementById('parrafo1');
+        const parrafo2 = document.getElementById('parrafo2');
+        parrafo2.innerHTML = 'Nuevo <strong>texto</strong> para el párrafo';
+
+        // Cambiar el valor del campo de entrada utilizando la propiedad value
+        const inputField = document.getElementById('myInput');
+        inputField.value = 'Nuevo valor del campo';
+
+        // Cambiar el estilo del párrafo
+        function changeStyle() {
+            parrafo1.style.color = 'green';
+            parrafo1.style.fontWeight = 'bold';
+            parrafo2.innerHTML = inputField.value;
+        }
+    </script>
+</body>
+</html>
